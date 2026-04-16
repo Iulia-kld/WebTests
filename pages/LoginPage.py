@@ -14,7 +14,33 @@ class LoginPageLocators:
     YANDEX_BUTTON = ("xpath",  '//a[@title="Войти через Яндекс"]')
     LOGIN_TAB = ("xpath",  '//a[@data-l="t,login_tab"]')
     QR_TAB = ("xpath",  '//a[@data-l="t,qr_tab"]')
+    ERROR_TEXT = ("xpath", '//*[contains(@class, "error")]')
 
 
 class LoginPageHelper(BasePage):
-    pass
+    def __init__(self,driver):
+        self.driver = driver
+        self.chek_page()
+
+    def chek_page(self):
+        self.find_element(LoginPageLocators.LOGIN_FIELD)
+        self.find_element(LoginPageLocators.PASSWORD_FIELD)
+        self.find_element(LoginPageLocators.HINT_PASSWORD)
+        self.find_element(LoginPageLocators.LOGIN_BUTTON)
+        self.find_element(LoginPageLocators.LOGIN_QR_CODE_BUTTON)
+        self.find_element(LoginPageLocators.FAILED_LOGIN)
+        self.find_element(LoginPageLocators.REGISTRATION_BUTTON)
+        self.find_element(LoginPageLocators.VK_ID_BUTTON)
+        self.find_element(LoginPageLocators.MAIL_BUTTON)
+        self.find_element(LoginPageLocators.YANDEX_BUTTON)
+        self.find_element(LoginPageLocators.LOGIN_TAB)
+        self.find_element(LoginPageLocators.QR_TAB)
+
+    def click_login(self):
+        self.find_element(LoginPageLocators.LOGIN_BUTTON).click()
+
+    def get_error_text(self):
+        return self.find_element(LoginPageLocators.ERROR_TEXT).text
+
+    def enter_login(self):
+        self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys("AAAAAbbbbb123")
