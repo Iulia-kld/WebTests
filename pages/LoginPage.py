@@ -17,6 +17,9 @@ class LoginPageLocators:
     LOGIN_TAB = ("xpath",  '//a[@data-l="t,login_tab"]')
     QR_TAB = ("xpath",  '//a[@data-l="t,qr_tab"]')
     ERROR_TEXT = ("xpath", '//*[contains(@class, "error")]')
+    CANCEL_BUTTON = ("xpath", '//span[contains(text(), "Отмена")]')
+    RESTORE_BUTTON = ("xpath", '//a//span[contains(text(), "Восстановить")]')
+
 
 
 class LoginPageHelper(BasePage):
@@ -25,6 +28,8 @@ class LoginPageHelper(BasePage):
         self.chek_page()
 
     def chek_page(self):
+        with allure.step('Проверяем корректность загрузки страницы'):
+            self.attach_screenshot()
         self.find_element(LoginPageLocators.LOGIN_FIELD)
         self.find_element(LoginPageLocators.PASSWORD_FIELD)
         self.find_element(LoginPageLocators.HINT_PASSWORD)
@@ -49,6 +54,16 @@ class LoginPageHelper(BasePage):
         return self.find_element(LoginPageLocators.ERROR_TEXT).text
 
     @allure.step("Вводим значение в поле 'Логин'")
-    def enter_login(self):
+    def enter_login(self, login):
+        self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(login)
         self.attach_screenshot()
-        self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys("AAAAAbbbbb123")
+
+    @allure.step("Вводим значение в поле 'Пароль'")
+    def enter_password(self, password):
+        self.find_element(LoginPageLocators.PASSWORD_FIELD).send_keys(password)
+        self.attach_screenshot()
+
+    @allure.step("Кликаем на кнопку 'Восстановить'")
+    def click_recovery(self):
+        self.attach_screenshot()
+        self.find_element(LoginPageLocators.RESTORE_BUTTON).click()
