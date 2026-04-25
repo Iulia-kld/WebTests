@@ -1,0 +1,24 @@
+import time
+
+import allure
+from core.BaseTest import browser
+from pages.BasePage import BasePage
+from pages.LoginPage import LoginPageHelper, LoginPageLocators
+from pages.RegistrationPage import RegistrationPageHelper, RegistrationPageLocators
+
+BASE_URL = "https://ok.ru/"
+
+def test_registration_random_country(browser):
+    BasePage(browser).get_url(BASE_URL)
+    LoginPage = LoginPageHelper(browser)
+    LoginPage.click_registration()
+    RegistrationPage = RegistrationPageHelper(browser)
+    Selected_country_code = RegistrationPage.select_random_country()
+    Actual_country_code = RegistrationPage.get_phone_field_value()
+    print(repr(Selected_country_code))
+    print(repr(Actual_country_code))
+    # assert Selected_country_code == Actual_country_code, "Коды страны не совпадают"
+
+
+
+

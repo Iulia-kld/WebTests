@@ -1,5 +1,4 @@
 import allure
-
 from pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
@@ -22,5 +21,10 @@ class RecoveryPageHelper(BasePage):
         self.find_element(RecoveryPageLocators.EMAIL_BUTTON)
         self.find_element(RecoveryPageLocators.QA_CODE)
         self.find_element(RecoveryPageLocators.SUPPORT_LINK)
+
+
+
+
+
 
 

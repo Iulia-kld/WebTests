@@ -5,7 +5,6 @@ from pages.BasePage import BasePage
 from pages.LoginPage import LoginPageHelper, LoginPageLocators
 from pages.RecoveryPage import RecoveryPageHelper
 
-import time
 
 BASE_URL = "https://ok.ru/"
 LOGIN_TEXT = "email"
@@ -21,7 +20,6 @@ def test_go_recovercy_after_many_fails(browser):
     for i in range(3):
         LoginPage.enter_password(PASSWORD_TEXT)
         LoginPage.click_login()
-        time.sleep(4)
 
     LoginPage.click_recovery()
     RecoveryPageHelper(browser)

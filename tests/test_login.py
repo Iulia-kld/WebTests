@@ -3,14 +3,11 @@ import allure
 from core.BaseTest import browser
 from pages.BasePage import BasePage
 from pages.LoginPage import LoginPageLocators, LoginPageHelper
-import time
 
 BASE_URL = "https://ok.ru/"
 EMPTY_LOGIN_ERROR = "Введите логин"
 EMPTY_PASSWORD_ERROR = "Введите пароль"
 LOGIN_TEXT = "email"
-
-
 
 @allure.suite('Проверка формы авторизации')
 @allure.title('Проверка ошибки при отправке пустой формы авторизации')
