@@ -1,7 +1,7 @@
 import allure
 
 from core.BaseTest import browser
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 from selenium.webdriver.common.by import By
 import random
 
@@ -16,12 +16,12 @@ class RegistrationPageLocators:
     COUNTRY_ITEMS = ("xpath", '//div[contains(@class, "CountryList-module_countryList__listItem__bflkV")]')
 
 
-class RegistrationPageHelper(BasePage):
+class RegistrationPageHelperHelper(BasePageHelper):
     def __init__(self,driver):
         self.driver = driver
-        self.chek_page()
+        self.cheсk_page()
 
-    def chek_page(self):
+    def cheсk_page(self):
         with allure.step('Проверяем корректность загрузки страницы'):
             self.attach_screenshot()
         self.find_element(RegistrationPageLocators.ABOUT_VK_LINK)

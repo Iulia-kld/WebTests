@@ -1,6 +1,6 @@
 import allure
 
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 from selenium.webdriver.common.by import By
 
 class LoginPageLocators:
@@ -22,12 +22,12 @@ class LoginPageLocators:
 
 
 
-class LoginPageHelper(BasePage):
+class LoginPageHelper(BasePageHelper):
     def __init__(self,driver):
         self.driver = driver
-        self.chek_page()
+        self.cheсk_page()
 
-    def chek_page(self):
+    def cheсk_page(self):
         with allure.step('Проверяем корректность загрузки страницы'):
             self.attach_screenshot()
         self.find_element(LoginPageLocators.LOGIN_FIELD)
