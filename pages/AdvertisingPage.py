@@ -4,7 +4,7 @@ import allure
 class AdvertisingPageLocators:
     ADVERTISING_CABINET = ("xpath", '//span[text()="Рекламный кабинет"]')
 
-class AdvertisingPageHelperHelper(BasePageHelper):
+class AdvertisingPageHelper(BasePageHelper):
     def __init__(self,driver):
         self.driver = driver
         self.cheсk_page()

@@ -16,7 +16,7 @@ class RegistrationPageLocators:
     COUNTRY_ITEMS = ("xpath", '//div[contains(@class, "CountryList-module_countryList__listItem__bflkV")]')
 
 
-class RegistrationPageHelperHelper(BasePageHelper):
+class RegistrationPageHelper(BasePageHelper):
     def __init__(self,driver):
         self.driver = driver
         self.cheсk_page()

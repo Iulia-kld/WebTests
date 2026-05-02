@@ -9,7 +9,7 @@ class RecoveryPageLocators:
     SUPPORT_LINK = ("xpath", '//*[@data-l="t,support"]')
 
 
-class RecoveryPageHelperHelper(BasePageHelper):
+class RecoveryPageHelper(BasePageHelper):
     def __init__(self,driver):
         self.driver = driver
         self.cheсk_page()

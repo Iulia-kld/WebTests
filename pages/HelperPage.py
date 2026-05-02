@@ -22,7 +22,7 @@ class HelperPageLocators:
     INFORMATION = ("xpath", '//a[contains(@href, "poleznaya-informaciya")]')
     ADVERTISING = ("xpath", '//a[contains(@href, "reklamnyi-kabinet")]')
 
-class HelpPageHelperHelper(BasePageHelper):
+class HelpPageHelper(BasePageHelper):
     def __init__(self,driver):
         self.driver = driver
         self.cheсk_page()
