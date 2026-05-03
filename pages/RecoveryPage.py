@@ -1,5 +1,5 @@
 import allure
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 from selenium.webdriver.common.by import By
 
 class RecoveryPageLocators:
@@ -9,12 +9,12 @@ class RecoveryPageLocators:
     SUPPORT_LINK = ("xpath", '//*[@data-l="t,support"]')
 
 
-class RecoveryPageHelper(BasePage):
+class RecoveryPageHelper(BasePageHelper):
     def __init__(self,driver):
         self.driver = driver
-        self.chek_page()
+        self.cheсk_page()
 
-    def chek_page(self):
+    def cheсk_page(self):
         with allure.step('Проверяем корректность загрузки страницы'):
             self.attach_screenshot()
         self.find_element(RecoveryPageLocators.PHONE_BUTTON)

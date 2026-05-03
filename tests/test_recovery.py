@@ -1,7 +1,7 @@
 import allure
 
 from core.BaseTest import browser
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 from pages.LoginPage import LoginPageHelper, LoginPageLocators
 from pages.RecoveryPage import RecoveryPageHelper
 
@@ -13,7 +13,7 @@ PASSWORD_TEXT = "12"
 @allure.suite('Проверка восстановления страницы')
 @allure.title('Проверка перехода к восстановлению после нескольких неудачных попыток ввести пароль')
 def test_go_recovercy_after_many_fails(browser):
-    BasePage(browser).get_url(BASE_URL)
+    BasePageHelper(browser).get_url(BASE_URL)
     LoginPage = LoginPageHelper(browser)
     LoginPage.enter_login(LOGIN_TEXT)
 

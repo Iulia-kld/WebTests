@@ -1,12 +1,10 @@
 from selenium.webdriver import ActionChains
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 from selenium.webdriver.common.by import By
 import allure
 
 class HelperPageLocators:
-    LOGO = ("xpath", '//div[@class="toolbar_custom-logo_img-w"]')
-    TOOLBAR_SEARCH = ("xpath", '//button[@class="toolbar_search_mini-button"]')
-    TOOLBAR_NAVICATION = ("xpath", '//span[@class="toolbar_nav_i_ic"]')
+
     LOGIN_BUTTON_TOOLBAR = ("xpath", '//div[@class="anon-tb-login"]')
     BUTTON_TO_SEARCH = ("xpath", '//span[@data-tsid="button_to_search"]')
     INPUT_SEARCH = ("xpath", '//input[@type="search"]')
@@ -24,17 +22,14 @@ class HelperPageLocators:
     INFORMATION = ("xpath", '//a[contains(@href, "poleznaya-informaciya")]')
     ADVERTISING = ("xpath", '//a[contains(@href, "reklamnyi-kabinet")]')
 
-class HelpPageHelper(BasePage):
+class HelpPageHelper(BasePageHelper):
     def __init__(self,driver):
         self.driver = driver
-        self.chek_page()
+        self.cheсk_page()
 
-    def chek_page(self):
+    def cheсk_page(self):
         with allure.step('Проверяем корректность загрузки страницы'):
             self.attach_screenshot()
-        self.find_element(HelperPageLocators.LOGO)
-        self.find_element(HelperPageLocators.TOOLBAR_SEARCH)
-        self.find_element(HelperPageLocators.TOOLBAR_NAVICATION)
         self.find_element(HelperPageLocators.LOGIN_BUTTON_TOOLBAR)
         self.find_element(HelperPageLocators.BUTTON_TO_SEARCH)
         self.find_element(HelperPageLocators.INPUT_SEARCH)

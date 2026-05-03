@@ -1,15 +1,15 @@
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 import allure
 
 class AdvertisingPageLocators:
     ADVERTISING_CABINET = ("xpath", '//span[text()="Рекламный кабинет"]')
 
-class AdvertisingPageHelper(BasePage):
+class AdvertisingPageHelper(BasePageHelper):
     def __init__(self,driver):
         self.driver = driver
-        self.chek_page()
+        self.cheсk_page()
 
-    def chek_page(self):
+    def cheсk_page(self):
         with allure.step('Проверяем корректность загрузки страницы'):
             self.attach_screenshot()
         self.find_element(AdvertisingPageLocators.ADVERTISING_CABINET)
